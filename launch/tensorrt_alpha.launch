@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="tensorrt_alpha_node" pkg="tensorrt_alpha_ros" type="tensorrt_alpha_ros_node" output="screen">
+        <param name="model_class" value="YOLOV7" />
+        <param name="engine_file" value="$(find tensorrt_alpha_ros)/models/trt/yolov7/yolov7.trt" />
+        <param name="nn_input_w" value="640"/>
+        <param name="nn_input_h" value="640"/>
+        <param name="batch_size" value="1"/>
+        <!-- input_mode: 0 for camera, 1 for video, 2 for image -->
+        <param name="input_mode" value="1"/> 
+        <param name="cam_topic" value="/cam0/image_raw" />
+        <param name="cam_input_w" value="720"/>
+        <param name="cam_input_h" value="640"/>
+        <param name="video" value="$(find tensorrt_alpha_ros)/data/people.mp4"/>
+        <param name="image" value="$(find tensorrt_alpha_ros)/data/6406402.jpg"/>
+        <param name="show" value="true" />
+    </node>
+</launch>
